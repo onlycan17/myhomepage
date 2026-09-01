@@ -12,13 +12,14 @@ import { getAllPosts } from "@/lib/posts";
 
 export default async function HomePage() {
   const posts = await getAllPosts();
+  const commandPalettePosts = posts.map(({ slug, title }) => ({ slug, title }));
 
   return (
     <>
       <a href="#main-content" className="skip-link">
         본문으로 건너뛰기
       </a>
-      <SiteHeader />
+      <SiteHeader commandPalettePosts={commandPalettePosts} />
       <main id="main-content" className="flex-1">
         <HeroSection />
         <AboutSection />

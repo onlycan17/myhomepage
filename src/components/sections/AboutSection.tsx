@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { SectionShell } from "@/components/common/SectionShell";
 import { Reveal } from "@/components/common/Reveal";
+import { AboutStatsStrip } from "@/components/interactive/AboutStatsStrip";
 import { profile, strengths } from "@/data/profile";
 
 export function AboutSection() {
@@ -48,6 +49,9 @@ export function AboutSection() {
           ))}
         </div>
       </div>
+      <Reveal>
+        <AboutStatsStrip />
+      </Reveal>
     </SectionShell>
   );
 }

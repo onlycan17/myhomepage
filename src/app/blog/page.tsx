@@ -13,10 +13,11 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
+  const commandPalettePosts = posts.map(({ slug, title }) => ({ slug, title }));
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader commandPalettePosts={commandPalettePosts} />
       <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-8 px-5 py-16 sm:px-8 lg:px-10">
         <header className="space-y-4">
           <p className="monolabel">{"// blog index"}</p>

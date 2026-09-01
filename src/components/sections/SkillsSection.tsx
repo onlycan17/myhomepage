@@ -1,8 +1,11 @@
 import { SectionShell } from "@/components/common/SectionShell";
 import { Reveal } from "@/components/common/Reveal";
+import { SkillsMarquee } from "@/components/interactive/SkillsMarquee";
 import { certificates, education, skillGroups } from "@/data/profile";
 
 export function SkillsSection() {
+  const marqueeItems = skillGroups.flatMap((group) => group.items);
+
   return (
     <SectionShell
       id="skills"
@@ -10,6 +13,9 @@ export function SkillsSection() {
       title="도메인과 스택이 바뀌어도 빠르게 적응하는 기술 기반"
       description="백엔드, 프론트엔드, 모바일, AI, 데이터·인프라를 실제 업무 맥락에서 연결해 왔습니다."
     >
+      <Reveal>
+        <SkillsMarquee items={marqueeItems} />
+      </Reveal>
       <div className="grid gap-4 lg:grid-cols-2">
         {skillGroups.map((group, index) => (
           <Reveal key={group.title} delay={index * 0.04} className="surface-card p-5 sm:p-6">

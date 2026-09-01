@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+import { GlobalScrollProgress } from "@/components/interactive/GlobalScrollProgress";
+import { ScrollProvider } from "@/components/interactive/ScrollProvider";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,8 +41,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko" className="h-full scroll-smooth">
-      <body className="min-h-full bg-[#f6f8fc] text-slate-900 antialiased">{children}</body>
+    <html lang="ko" className="h-full">
+      <body className="min-h-full bg-[#f6f8fc] text-slate-900 antialiased">
+        <GlobalScrollProgress />
+        <ScrollProvider>{children}</ScrollProvider>
+      </body>
     </html>
   );
 }

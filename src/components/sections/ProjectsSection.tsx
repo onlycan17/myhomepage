@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/common/Reveal";
 import { SectionShell } from "@/components/common/SectionShell";
+import { ProjectTiltCard } from "@/components/interactive/ProjectTiltCard";
 import {
   featuredProjects,
   learningArchive,
@@ -67,70 +68,69 @@ export function ProjectsSection() {
           );
 
           return (
-            <Reveal
-              key={project.name}
-              delay={index * 0.03}
-              className="surface-card p-5 sm:p-6"
-            >
-              {project.image ? (
-                <Link
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  tabIndex={-1}
-                >
-                  <Image
-                    src={project.image}
-                    alt={`${project.name} 실행 화면`}
-                    width={1200}
-                    height={750}
-                    priority={index < 4}
-                    className="aspect-[8/5] w-full rounded-2xl border border-black/8 object-cover"
-                  />
-                </Link>
-              ) : null}
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <p className="monolabel">{category?.label ?? "프로젝트"}</p>
-                  <h3 className="mt-3 text-xl font-semibold text-slate-950">
-                    {project.name}
-                  </h3>
+            <Reveal key={project.name} delay={index * 0.03} className="h-full">
+              <ProjectTiltCard className="group/project p-5 sm:p-6">
+                {project.image ? (
+                  <Link
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    tabIndex={-1}
+                    className="block overflow-hidden rounded-2xl"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} 실행 화면`}
+                      width={1200}
+                      height={750}
+                      priority={index < 4}
+                      className="aspect-[8/5] w-full rounded-2xl border border-black/8 object-cover transition duration-500 group-hover/project:scale-[1.03]"
+                    />
+                  </Link>
+                ) : null}
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="monolabel">{category?.label ?? "프로젝트"}</p>
+                    <h3 className="mt-3 text-xl font-semibold text-slate-950">
+                      {project.name}
+                    </h3>
+                  </div>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="chip-link"
+                  >
+                    GitHub
+                  </a>
                 </div>
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="chip-link"
-                >
-                  GitHub
-                </a>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-700">
-                {project.description}
-              </p>
-              <dl className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-700 sm:grid-cols-3">
-                <div>
-                  <dt className="text-slate-600">언어</dt>
-                  <dd className="mt-1 text-slate-900">{project.language}</dd>
+                <p className="mt-4 text-sm leading-7 text-slate-700">
+                  {project.description}
+                </p>
+                <dl className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-700 sm:grid-cols-3">
+                  <div>
+                    <dt className="text-slate-600">언어</dt>
+                    <dd className="mt-1 text-slate-900">{project.language}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-600">업데이트</dt>
+                    <dd className="mt-1 text-slate-900">
+                      {formatIsoDate(project.updatedAt)}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-600">Stars</dt>
+                    <dd className="mt-1 text-slate-900">{project.stars}</dd>
+                  </div>
+                </dl>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.topics.map((topic) => (
+                    <span key={topic} className="tech-chip">
+                      {topic}
+                    </span>
+                  ))}
                 </div>
-                <div>
-                  <dt className="text-slate-600">업데이트</dt>
-                  <dd className="mt-1 text-slate-900">
-                    {formatIsoDate(project.updatedAt)}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-slate-600">Stars</dt>
-                  <dd className="mt-1 text-slate-900">{project.stars}</dd>
-                </div>
-              </dl>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.topics.map((topic) => (
-                  <span key={topic} className="tech-chip">
-                    {topic}
-                  </span>
-                ))}
-              </div>
+              </ProjectTiltCard>
             </Reveal>
           );
         })}

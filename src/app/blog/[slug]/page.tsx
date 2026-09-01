@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { BlogCodeCopyEnhancer } from "@/components/interactive/BlogCodeCopyEnhancer";
+import { BlogReadingProgress } from "@/components/interactive/BlogReadingProgress";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { getAllPostSlugs, getPostBySlug, shouldRenderPostLead } from "@/lib/posts";
+import { getAllPosts, getAllPostSlugs, getPostBySlug, shouldRenderPostLead } from "@/lib/posts";
 import { formatDate } from "@/lib/utils";
 
 type BlogPostPageProps = {
@@ -39,19 +41,21 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const [post, posts] = await Promise.all([getPostBySlug(slug), getAllPosts()]);
 
   if (!post) {
     notFound();
   }
 
   const shouldShowLead = shouldRenderPostLead(post.description, post.content);
+  const commandPalettePosts = posts.map(({ slug: postSlug, title }) => ({ slug: postSlug, title }));
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader commandPalettePosts={commandPalettePosts} />
+      <BlogReadingProgress targetId="blog-post-article" />
       <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 py-16 sm:px-8 lg:px-10">
-        <article className="surface-card p-6 sm:p-8 lg:p-10">
+        <article id="blog-post-article" className="surface-card p-6 sm:p-8 lg:p-10">
           <p className="monolabel">{"// post"}</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
             {post.title}
@@ -68,6 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="prose-markdown mt-10" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </main>
+      <BlogCodeCopyEnhancer selector="#blog-post-article .prose-markdown" />
       <SiteFooter />
     </>
   );
