@@ -44,6 +44,7 @@ export type ProjectItem = {
   updatedAt: string;
   stars: number;
   topics: string[];
+  image?: string;
   category: ProjectCategoryKey;
 };
 

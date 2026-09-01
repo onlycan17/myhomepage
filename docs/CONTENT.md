@@ -66,6 +66,8 @@
 8. **나이스 기반 중학교 입학배정시스템** (2012~2015, 퓨전소프트) — 배정 알고리즘 개발·데이터 연계 참여
 
 ## 6. GitHub 포트폴리오 큐레이션 (Projects)
+- 실행 스크린샷: `public/projects/{repo}.jpg` — 프로젝트를 로컬에서 실제 실행(정적 서버/vite/dev 서버/flutter build web) 후 촬영한 이미지. 현재 6개(javascriptGame, yokai-game, moonshadow-courier, web-games, musle_map, flutter_live_test). `ProjectItem.image` 필드에 경로 지정, 없는 카드는 텍스트만 표시
+- 스크린샷 미채택: calendar-app(웹 빌드 성공하나 초기 화면이 빈 회색), wedding(Firebase 키 필요), Rtube(MongoDB 필요), office_schedule(Node 26 비호환 라이브러리)
 fork 제외 자체 저장소만 메인에. 메타데이터(언어·업데이트일·stars·topics)는 GitHub API로 갱신: `GET https://api.github.com/users/onlycan17/repos?per_page=100`
 
 카테고리 제안:

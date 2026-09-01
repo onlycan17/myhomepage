@@ -46,6 +46,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "moonshadow-courier",
     href: "https://github.com/onlycan17/moonshadow-courier",
+    image: "/projects/moonshadow-courier.jpg",
     description: "최근 에이전트 기반 자동화 흐름을 탐구하는 TypeScript 실험 저장소입니다.",
     language: "TypeScript",
     updatedAt: "2026-09-01",
@@ -116,6 +117,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "web-games",
     href: "https://github.com/onlycan17/web-games",
+    image: "/projects/web-games.jpg",
     description: "브라우저에서 가볍게 즐길 수 있는 여러 게임 아이디어를 모은 저장소입니다.",
     language: "TypeScript",
     updatedAt: "2025-07-27",
@@ -126,6 +128,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "yokai-game",
     href: "https://github.com/onlycan17/yokai-game",
+    image: "/projects/yokai-game.jpg",
     description: "캐주얼 전투 흐름을 실험한 JavaScript 게임 프로젝트입니다.",
     language: "JavaScript",
     updatedAt: "2025-08-01",
@@ -136,6 +139,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "javascriptGame",
     href: "https://github.com/onlycan17/javascriptGame",
+    image: "/projects/javascriptGame.jpg",
     description: "기초 게임 루프와 화면 상호작용을 연습한 JavaScript 프로젝트입니다.",
     language: "JavaScript",
     updatedAt: "2025-02-20",
@@ -146,6 +150,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "musle_map",
     href: "https://github.com/onlycan17/musle_map",
+    image: "/projects/musle_map.jpg",
     description: "운동 부위 정보를 시각적으로 탐색하는 Flutter 앱 아이디어를 담았습니다.",
     language: "Dart",
     updatedAt: "2026-05-07",
@@ -196,6 +201,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "flutter_live_test",
     href: "https://github.com/onlycan17/flutter_live_test",
+    image: "/projects/flutter_live_test.jpg",
     description: "Flutter 환경과 네이티브 빌드 흐름을 함께 실험한 테스트 저장소입니다.",
     language: "C++",
     updatedAt: "2026-02-26",
