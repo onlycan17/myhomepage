@@ -36,6 +36,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "browser-agent-extension",
     href: "https://github.com/onlycan17/browser-agent-extension",
+    image: "/projects/browser-agent-extension.jpg",
     description: "브라우저 안에서 에이전트 워크플로를 실험하는 TypeScript 확장 프로젝트입니다.",
     language: "TypeScript",
     updatedAt: "2026-08-30",
