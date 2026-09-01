@@ -85,7 +85,7 @@ export function ProjectsSection() {
                     width={1200}
                     height={750}
                     priority={index < 4}
-                    className="aspect-[8/5] w-full rounded-xl border border-black/8 object-cover"
+                    className="aspect-[8/5] w-full rounded-2xl border border-black/8 object-cover"
                   />
                 </Link>
               ) : null}
