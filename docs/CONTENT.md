@@ -69,13 +69,14 @@
 - 실행 스크린샷: `public/projects/{repo}.jpg` — 프로젝트를 로컬에서 실제 실행(정적 서버/vite/dev 서버/flutter build web) 후 촬영한 이미지. 현재 6개(javascriptGame, yokai-game, moonshadow-courier, web-games, musle_map, flutter_live_test). `ProjectItem.image` 필드에 경로 지정, 없는 카드는 텍스트만 표시
 - 스크린샷 미채택: calendar-app(웹 빌드 성공하나 초기 화면이 빈 회색), wedding(Firebase 키 필요), Rtube(MongoDB 필요), office_schedule(Node 26 비호환 라이브러리)
 fork 제외 자체 저장소만 메인에. 메타데이터(언어·업데이트일·stars·topics)는 GitHub API로 갱신: `GET https://api.github.com/users/onlycan17/repos?per_page=100`
+- 업데이트일(`updatedAt`)은 저장소 설정 수정에도 바뀌는 `updated_at`이 아니라 **마지막 코드 푸시(`pushed_at`)** 기준. 설명·topics는 README/package.json 실제 내용 기준으로 수동 큐레이션 (2026-09-02 전체 대조 갱신)
 
 카테고리 제안:
-- **AI / 실험**: browser-agent-extension(TS), moonshadow-courier(TS), AI-Commend-Input, mycoder_cli(Go)
-- **웹 서비스**: wedding(TS·★1, 청첩장), Rtube(JS 미디어 커뮤니티), office_schedule(JS 일정 관리), live-server(TS), web-games/유사작(yokai-game JS, javascriptGame JS)
+- **AI / 실험**: browser-agent-extension(TS Chrome MV3 에이전트 확장), AI-Commend-Input, mycoder_cli(Go 인지형 코딩 CLI·RAG)
+- **웹 서비스**: wedding(TS·★1, 청첩장), Rtube(JS 미디어 커뮤니티), office_schedule(JS 일정 관리), live-server(TS WebRTC·SFU 스트리밍 서버), moonshadow-courier(TS 횡스크롤 웹 액션 RPG "월영전령: 심연의 기록"), web-games/유사작(yokai-game JS, javascriptGame JS)
 - **Flutter 앱**: musle_map(Dart), calendar-app(Dart), 1945_remake(Dart), church_attandance_app(Dart), BlockBreakerClone(Dart), flutter_live_test(C++)
 - **도구/파이프라인**: pdf_change_epub(Python), pdf-epub-python(문서+스켈레톤)
-- **Java 백엔드**: SoldierSuply, Providence, typing
+- **Java 백엔드**: SoldierSuply, Providence, typing(Spring Boot CMS API)
 - **학습 아카이브**(접이식 목록, 이름+링크만): nwitter, instaclone-web/native/backend, wetube, movie-ql, apollo-2021, react-coin, CRYPTO-TRACKER, nomad-weather, fokin-weather, movie_app, hi-nest(NestJS), flutter_cart_bloc, flutter_misemeongi, Dice-ios14, beckend-test, spring-boot-docker-test, onlycan17(profile)
 - 설명이 없는 저장소는 README 1~2줄 요약으로 보완 (빌드 시 수동 작성 허용 — 위 카테고리/이름 기반 짧은 한국어 설명 붙이기)
 
