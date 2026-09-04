@@ -13,11 +13,11 @@ export function HeroSection() {
           <div className="relative z-10 space-y-8">
             <p className="monolabel">{"// hero"}</p>
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              <h1 className="hero-blur-in max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 백엔드의 안정성에서 시작해
                 <span className="gradient-text block">AI 서비스의 전달력까지 연결합니다.</span>
               </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
+              <p className="hero-blur-in-delay max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
                 {profile.intro}
               </p>
             </div>

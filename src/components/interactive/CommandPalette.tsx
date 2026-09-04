@@ -19,7 +19,12 @@ type CommandPaletteProps = {
   posts: CommandPalettePost[];
 };
 
-const groupOrder: CommandPaletteGroup[] = ["섹션", "블로그", "외부 링크"];
+const groupOrder: CommandPaletteGroup[] = [
+  "빠른 명령",
+  "섹션",
+  "블로그",
+  "외부 링크",
+];
 
 function focusableElements(container: HTMLElement): HTMLElement[] {
   return Array.from(
