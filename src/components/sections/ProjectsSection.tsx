@@ -2,32 +2,35 @@
 
 import { useMemo, useState } from "react";
 
-import Image from "next/image";
-import Link from "next/link";
-
 import { Reveal } from "@/components/common/Reveal";
 import { SectionShell } from "@/components/common/SectionShell";
-import { ProjectTiltCard } from "@/components/interactive/ProjectTiltCard";
+import { ProjectShowcaseList } from "@/components/interactive/ProjectShowcaseList";
 import {
   featuredProjects,
   learningArchive,
   projectCategories,
 } from "@/data/projects";
-import { formatIsoDate, joinClasses } from "@/lib/utils";
+import { joinClasses } from "@/lib/utils";
 import type { ProjectCategoryKey } from "@/types/content";
 
 type FilterKey = "all" | ProjectCategoryKey;
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState<FilterKey>("all");
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const visibleProjects = useMemo(() => {
+    const sourceProjects =
+      filter === "all" && !showAllProjects
+        ? featuredProjects.slice(0, 6)
+        : featuredProjects;
+
     if (filter === "all") {
-      return featuredProjects;
+      return sourceProjects;
     }
 
-    return featuredProjects.filter((project) => project.category === filter);
-  }, [filter]);
+    return sourceProjects.filter((project) => project.category === filter);
+  }, [filter, showAllProjects]);
 
   return (
     <SectionShell
@@ -40,6 +43,7 @@ export function ProjectsSection() {
         <button
           type="button"
           onClick={() => setFilter("all")}
+          aria-pressed={filter === "all"}
           className={joinClasses(
             "filter-button",
             filter === "all" && "filter-button-active",
@@ -52,6 +56,7 @@ export function ProjectsSection() {
             key={category.key}
             type="button"
             onClick={() => setFilter(category.key)}
+            aria-pressed={filter === category.key}
             className={joinClasses(
               "filter-button",
               filter === category.key && "filter-button-active",
@@ -61,80 +66,20 @@ export function ProjectsSection() {
           </button>
         ))}
       </Reveal>
-      <div className="grid gap-4 xl:grid-cols-2">
-        {visibleProjects.map((project, index) => {
-          const category = projectCategories.find(
-            (item) => item.key === project.category,
-          );
-
-          return (
-            <Reveal key={project.name} delay={index * 0.03} className="h-full">
-              <ProjectTiltCard className="group/project p-5 sm:p-6">
-                {project.image ? (
-                  <Link
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    tabIndex={-1}
-                    className="block overflow-hidden rounded-2xl"
-                  >
-                    <Image
-                      src={project.image}
-                      alt={`${project.name} 실행 화면`}
-                      width={1200}
-                      height={750}
-                      priority={index < 4}
-                      className="aspect-[8/5] w-full rounded-2xl border border-black/8 object-cover transition duration-500 group-hover/project:scale-[1.03]"
-                    />
-                  </Link>
-                ) : null}
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <p className="monolabel">{category?.label ?? "프로젝트"}</p>
-                    <h3 className="mt-3 text-xl font-semibold text-slate-950">
-                      {project.name}
-                    </h3>
-                  </div>
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="chip-link"
-                  >
-                    GitHub
-                  </a>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-slate-700">
-                  {project.description}
-                </p>
-                <dl className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-700 sm:grid-cols-3">
-                  <div>
-                    <dt className="text-slate-600">언어</dt>
-                    <dd className="mt-1 text-slate-900">{project.language}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-slate-600">업데이트</dt>
-                    <dd className="mt-1 text-slate-900">
-                      {formatIsoDate(project.updatedAt)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-slate-600">Stars</dt>
-                    <dd className="mt-1 text-slate-900">{project.stars}</dd>
-                  </div>
-                </dl>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.topics.map((topic) => (
-                    <span key={topic} className="tech-chip">
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-              </ProjectTiltCard>
-            </Reveal>
-          );
-        })}
-      </div>
+      <Reveal>
+        <ProjectShowcaseList projects={visibleProjects} />
+      </Reveal>
+      {!showAllProjects && filter === "all" ? (
+        <Reveal>
+          <button
+            type="button"
+            className="secondary-link"
+            onClick={() => setShowAllProjects(true)}
+          >
+            전체 프로젝트 {featuredProjects.length}개 보기
+          </button>
+        </Reveal>
+      ) : null}
       <Reveal>
         <details className="surface-card group p-5 sm:p-6">
           <summary className="cursor-pointer list-none text-lg font-semibold text-slate-950 marker:hidden">

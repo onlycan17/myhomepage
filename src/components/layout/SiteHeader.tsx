@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 import { CommandPalette } from "@/components/interactive/CommandPalette";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -14,17 +15,23 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ commandPalettePosts = [] }: SiteHeaderProps) {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isHome = pathname === "/";
   const activeSection = useActiveSection(
     sectionNavItems.map((item) => item.id),
     isHome,
   );
 
+  const handleMobileNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <header className="sticky top-0 z-50 border-b border-black/8 bg-[rgba(246,248,252,0.82)] backdrop-blur-xl">
+    <header className="relative sticky top-0 z-50 border-b border-black/8 bg-[rgba(246,248,252,0.82)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
         <Link
           href="/"
+          onClick={handleMobileNavClick}
           className="text-sm font-semibold tracking-[0.24em] text-slate-950 uppercase"
         >
           OJINSEOK.dev
@@ -57,11 +64,46 @@ export function SiteHeader({ commandPalettePosts = [] }: SiteHeaderProps) {
         </nav>
         <div className="flex items-center gap-2">
           <CommandPalette posts={commandPalettePosts} />
-          <Link href="/blog" className="chip-link hidden sm:inline-flex">
+          <button
+            type="button"
+            className="mobile-menu-trigger secondary-link px-3 py-2 text-sm md:hidden"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-section-menu"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+          >
+            메뉴
+          </button>
+          <Link href="/blog" className="desktop-blog-link chip-link">
             블로그 보기
           </Link>
         </div>
       </div>
+      {isMobileMenuOpen ? (
+        <nav
+          id="mobile-section-menu"
+          aria-label="모바일 주요 섹션"
+          className="mobile-menu-panel absolute inset-x-0 top-full border-b border-black/8 bg-[rgba(246,248,252,0.96)] px-5 py-3 shadow-lg backdrop-blur-xl md:hidden"
+        >
+          <div className="mx-auto grid max-w-6xl gap-1 sm:grid-cols-2">
+            {sectionNavItems.map((item) => (
+              <a
+                key={item.hash}
+                href={pathname === "/" ? item.hash : item.href}
+                onClick={handleMobileNavClick}
+                className={joinClasses(
+                  "rounded-xl px-3 py-3 text-sm font-medium transition hover:bg-cyan-700/8",
+                  isHome && activeSection === item.id
+                    ? "text-cyan-800"
+                    : "text-slate-700",
+                )}
+                aria-current={isHome && activeSection === item.id ? "location" : undefined}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      ) : null}
     </header>
   );
 }

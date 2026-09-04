@@ -61,7 +61,7 @@ export function useCommandPalette({ items, onSelect }: UseCommandPaletteOptions)
       }
 
       if (event.key === "Escape") {
-        setIsOpen(false);
+        closePalette();
       }
     };
 
@@ -70,7 +70,7 @@ export function useCommandPalette({ items, onSelect }: UseCommandPaletteOptions)
     return () => {
       window.removeEventListener("keydown", handleWindowKeydown);
     };
-  }, []);
+  }, [closePalette]);
 
   const handleListKeyDown = useCallback(
     (event: ReactKeyboardEvent<HTMLInputElement>) => {

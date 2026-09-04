@@ -9,7 +9,7 @@ export type SectionId =
   | "blog"
   | "contact";
 
-export type CommandPaletteGroup = "섹션" | "블로그" | "외부 링크";
+export type CommandPaletteGroup = "빠른 명령" | "섹션" | "블로그" | "외부 링크";
 
 export type SectionNavItem = {
   id: SectionId;
@@ -67,6 +67,36 @@ export const externalCommandLinks: CommandPaletteItem[] = [
   },
 ];
 
+const profileCommandShortcuts: CommandPaletteItem[] = [
+  {
+    id: "shortcut-career-journey",
+    label: "13년차 커리어 여정",
+    href: "/#career",
+    group: "빠른 명령",
+    keywords: ["13년차", "커리어", "이력", "career", "journey"],
+    kind: "section",
+    hash: "#career",
+  },
+  {
+    id: "shortcut-ai-practice",
+    label: "AI RAG 실무 경험",
+    href: "/#work",
+    group: "빠른 명령",
+    keywords: ["ai", "rag", "llm", "ai 실무", "work"],
+    kind: "section",
+    hash: "#work",
+  },
+  {
+    id: "shortcut-project-showcase",
+    label: "대표 프로젝트 보기",
+    href: "/#projects",
+    group: "빠른 명령",
+    keywords: ["대표작", "대표 프로젝트", "프로젝트", "showcase", "github"],
+    kind: "section",
+    hash: "#projects",
+  },
+];
+
 export function buildCommandPaletteItems(posts: CommandPalettePost[]): CommandPaletteItem[] {
   const sectionItems: CommandPaletteItem[] = sectionNavItems.map((item) => ({
     id: `section-${item.id}`,
@@ -87,5 +117,10 @@ export function buildCommandPaletteItems(posts: CommandPalettePost[]): CommandPa
     kind: "post",
   }));
 
-  return [...sectionItems, ...postItems, ...externalCommandLinks];
+  return [
+    ...profileCommandShortcuts,
+    ...sectionItems,
+    ...postItems,
+    ...externalCommandLinks,
+  ];
 }
