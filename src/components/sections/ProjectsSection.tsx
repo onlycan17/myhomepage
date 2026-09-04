@@ -20,14 +20,20 @@ type FilterKey = "all" | ProjectCategoryKey;
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState<FilterKey>("all");
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const visibleProjects = useMemo(() => {
+    const sourceProjects =
+      filter === "all" && !showAllProjects
+        ? featuredProjects.slice(0, 6)
+        : featuredProjects;
+
     if (filter === "all") {
-      return featuredProjects;
+      return sourceProjects;
     }
 
-    return featuredProjects.filter((project) => project.category === filter);
-  }, [filter]);
+    return sourceProjects.filter((project) => project.category === filter);
+  }, [filter, showAllProjects]);
 
   return (
     <SectionShell
@@ -40,6 +46,7 @@ export function ProjectsSection() {
         <button
           type="button"
           onClick={() => setFilter("all")}
+          aria-pressed={filter === "all"}
           className={joinClasses(
             "filter-button",
             filter === "all" && "filter-button-active",
@@ -52,6 +59,7 @@ export function ProjectsSection() {
             key={category.key}
             type="button"
             onClick={() => setFilter(category.key)}
+            aria-pressed={filter === category.key}
             className={joinClasses(
               "filter-button",
               filter === category.key && "filter-button-active",
@@ -83,7 +91,8 @@ export function ProjectsSection() {
                       alt={`${project.name} 실행 화면`}
                       width={1200}
                       height={750}
-                      priority={index < 4}
+                      loading="lazy"
+                      sizes="(min-width: 1280px) 50vw, 100vw"
                       className="aspect-[8/5] w-full rounded-2xl border border-black/8 object-cover transition duration-500 group-hover/project:scale-[1.03]"
                     />
                   </Link>
@@ -135,6 +144,17 @@ export function ProjectsSection() {
           );
         })}
       </div>
+      {!showAllProjects && filter === "all" ? (
+        <Reveal>
+          <button
+            type="button"
+            className="secondary-link"
+            onClick={() => setShowAllProjects(true)}
+          >
+            전체 프로젝트 {featuredProjects.length}개 보기
+          </button>
+        </Reveal>
+      ) : null}
       <Reveal>
         <details className="surface-card group p-5 sm:p-6">
           <summary className="cursor-pointer list-none text-lg font-semibold text-slate-950 marker:hidden">

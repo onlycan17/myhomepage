@@ -161,9 +161,10 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
         aria-haspopup="dialog"
         aria-expanded={isOpen}
         aria-controls="command-palette-dialog"
+        aria-label="빠른 이동 열기"
       >
-        <span className="hidden sm:inline">빠른 이동</span>
-        <span className="font-mono text-[0.72rem] tracking-[0.16em] text-slate-500">
+        <span>빠른 이동</span>
+        <span className="hidden font-mono text-[0.72rem] tracking-[0.16em] text-slate-500 sm:inline">
           ⌘K
         </span>
       </button>
@@ -208,9 +209,18 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
               onKeyDown={handleDialogKeyDown}
             >
               <div className="border-b border-black/8 px-5 py-4 sm:px-6">
-                <p id="command-palette-title" className="monolabel">
-                  {"// command palette"}
-                </p>
+                <div className="flex items-center justify-between gap-4">
+                  <p id="command-palette-title" className="monolabel">
+                    {"// command palette"}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={closePalette}
+                    className="secondary-link px-3 py-2 text-sm"
+                  >
+                    닫기
+                  </button>
+                </div>
                 <input
                   ref={inputRef}
                   type="text"
@@ -219,6 +229,9 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
                   onKeyDown={handleListKeyDown}
                   placeholder="섹션, 블로그 글, GitHub, Notion, 이메일"
                   className="mt-3 w-full border-0 bg-transparent text-lg font-medium text-slate-950 outline-none placeholder:text-slate-400"
+                  role="combobox"
+                  aria-expanded={isOpen}
+                  aria-autocomplete="list"
                   aria-controls="command-palette-list"
                   aria-activedescendant={
                     filteredItems[activeIndex]
@@ -231,6 +244,7 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
                 id="command-palette-list"
                 className="max-h-[24rem] overflow-y-auto px-3 py-3"
                 role="listbox"
+                aria-label="빠른 이동 결과"
               >
                 {filteredItems.length === 0 ? (
                   <div className="rounded-2xl border border-dashed border-black/8 px-4 py-8 text-center text-sm text-slate-500">
@@ -258,6 +272,7 @@ export function CommandPalette({ posts }: CommandPaletteProps) {
                                 type="button"
                                 role="option"
                                 aria-selected={isActive}
+                                tabIndex={-1}
                                 onMouseEnter={() => setActiveIndex(index)}
                                 onClick={() => handleSelect(item)}
                                 className={joinClasses(

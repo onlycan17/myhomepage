@@ -11,19 +11,24 @@ export function HeroSection() {
       <HeroCursorGlow>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-18 sm:px-8 sm:py-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-10 lg:py-28">
           <div className="relative z-10 space-y-8">
-            <div className="sm:hidden">
-              <div className="mx-auto w-36 overflow-hidden rounded-[1.75rem] border border-cyan-700/18 bg-white p-1 shadow-[0_18px_42px_rgba(15,23,42,0.12)]">
-                <Image
-                  src="/profile.jpg"
-                  alt="오진석 프로필 사진"
-                  width={314}
-                  height={400}
-                  className="h-auto w-full rounded-[1.4rem] object-cover"
-                  priority
-                />
-              </div>
-            </div>
             <p className="monolabel">{"// hero"}</p>
+            <div className="space-y-4">
+              <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                백엔드의 안정성에서 시작해
+                <span className="gradient-text block">AI 서비스의 전달력까지 연결합니다.</span>
+              </h1>
+              <p className="max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
+                {profile.intro}
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a href={`mailto:${profile.email}`} className="primary-link">
+                이메일로 연락하기
+              </a>
+              <a href={profile.github} target="_blank" rel="noreferrer" className="secondary-link">
+                GitHub 포트폴리오
+              </a>
+            </div>
             <div className="terminal-frame">
               <div className="terminal-bar">
                 <span />
@@ -42,36 +47,19 @@ export function HeroSection() {
                 </p>
                 <p>{profile.headline}</p>
                 <p>{profile.taglineKr}</p>
-                <p className="text-slate-500">{profile.taglineEn}</p>
+                <p className="text-slate-400">{profile.taglineEn}</p>
               </div>
-            </div>
-            <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-                백엔드의 안정성에서 시작해
-                <span className="gradient-text block">AI 서비스의 전달력까지 연결합니다.</span>
-              </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
-                {profile.intro}
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a href={`mailto:${profile.email}`} className="primary-link">
-                이메일로 연락하기
-              </a>
-              <a href={profile.github} target="_blank" rel="noreferrer" className="secondary-link">
-                GitHub 포트폴리오
-              </a>
             </div>
           </div>
           <aside className="relative z-10 space-y-4">
-            <div className="hidden overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:block">
+            <div className="mx-auto w-36 overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:w-full">
               <Image
                 src="/profile.jpg"
                 alt="오진석 프로필 사진"
                 width={314}
                 height={400}
                 className="h-auto w-full rounded-[1.55rem] object-cover"
-                priority
+                loading="eager"
               />
             </div>
             <div className="surface-card p-6">

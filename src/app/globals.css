@@ -24,6 +24,7 @@
 }
 
 html {
+  scroll-padding-top: 6rem;
   background:
     radial-gradient(circle at top, rgba(8, 145, 178, 0.08), transparent 30%),
     linear-gradient(180deg, #f8fafc 0%, #eef2ff 48%, #f8fafc 100%);
@@ -50,7 +51,7 @@ button {
 }
 
 .skip-link {
-  position: absolute;
+  position: fixed;
   left: 1rem;
   top: -3rem;
   z-index: 60;
@@ -61,7 +62,8 @@ button {
   transition: top 0.2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 1rem;
 }
 
@@ -148,10 +150,7 @@ button {
   background: radial-gradient(circle at top, rgba(109, 40, 217, 0.08), transparent 56%);
 }
 
-.primary-link,
-.secondary-link,
-.chip-link,
-.filter-button {
+:where(.primary-link, .secondary-link, .chip-link, .filter-button) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -170,13 +169,12 @@ button {
   padding: 0.95rem 1.3rem;
 }
 
-.secondary-link,
-.chip-link,
-.filter-button {
+:where(.secondary-link, .chip-link, .filter-button) {
   border: 1px solid rgba(15, 23, 42, 0.12);
   color: #334155;
   background: rgba(255, 255, 255, 0.88);
   padding: 0.85rem 1.2rem;
+  white-space: nowrap;
 }
 
 .secondary-link:hover,
@@ -211,6 +209,10 @@ button {
 
 .skills-marquee-track {
   animation: skills-marquee 24s linear infinite;
+}
+
+.skills-marquee-track[data-paused="true"] {
+  animation-play-state: paused;
 }
 
 .skills-marquee-mask:hover .skills-marquee-track {
@@ -321,8 +323,21 @@ button {
 }
 
 :focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.28);
+  outline: 3px solid #0f766e !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.9) !important;
+}
+
+.mobile-menu-trigger {
+  display: inline-flex;
+}
+
+.mobile-menu-panel {
+  display: block;
+}
+
+.desktop-blog-link {
+  display: none;
 }
 
 @keyframes skills-marquee {
@@ -338,6 +353,19 @@ button {
 @media (max-width: 767px) {
   .surface-card:hover {
     transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-trigger,
+  .mobile-menu-panel {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .desktop-blog-link {
+    display: inline-flex;
   }
 }
 
