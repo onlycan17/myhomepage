@@ -27,6 +27,11 @@ export type WorkProject = {
   company: string;
   stack: string[];
   description: string;
+  caseStudy?: {
+    problem: string;
+    contribution: string;
+    outcome: string;
+  };
 };
 
 export type ProjectCategoryKey =
