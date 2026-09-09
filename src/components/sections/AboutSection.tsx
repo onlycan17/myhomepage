@@ -18,10 +18,10 @@ export function AboutSection() {
           <div className="mb-6 flex items-center gap-4">
             <div className="w-16 overflow-hidden rounded-2xl border border-black/8 bg-white p-1">
               <Image
-                src="/profile.jpg"
+                src="/profile.png"
                 alt="오진석 프로필 사진"
-                width={314}
-                height={400}
+                width={1086}
+                height={1448}
                 className="h-auto w-full rounded-[0.9rem] object-cover"
               />
             </div>

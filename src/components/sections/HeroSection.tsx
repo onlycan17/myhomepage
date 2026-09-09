@@ -54,10 +54,10 @@ export function HeroSection() {
           <aside className="relative z-10 space-y-4">
             <div className="mx-auto w-36 overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:w-full">
               <Image
-                src="/profile.jpg"
+                src="/profile.png"
                 alt="오진석 프로필 사진"
-                width={314}
-                height={400}
+                width={1086}
+                height={1448}
                 className="h-auto w-full rounded-[1.55rem] object-cover"
                 loading="eager"
               />
