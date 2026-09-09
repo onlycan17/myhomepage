@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="860" viewBox="0 0 720 860" role="img" aria-labelledby="title desc">
+  <title id="title">원하는 답을 얻기 위한 질문과 검토 흐름</title>
+  <desc id="desc">목적과 조건을 적고 초안을 받은 뒤 원문과 비교한다. 조건에 맞으면 사용하고, 부족하면 요청을 보완해 다시 초안을 받는다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10" fill="none" stroke="#0f766e" stroke-width="2"/></marker>
+  </defs>
+  <rect width="720" height="860" rx="28" fill="#f5f7f4"/>
+  <g font-family="Pretendard, Apple SD Gothic Neo, sans-serif" text-anchor="middle" fill="#0f172a">
+    <text x="360" y="64" font-size="29" font-weight="700">좋은 질문은 검토까지 이어진다</text>
+    <g stroke="#0f766e" stroke-width="2" fill="#ffffff">
+      <rect x="90" y="105" width="490" height="110" rx="18"/>
+      <rect x="90" y="270" width="490" height="110" rx="18"/>
+      <rect x="90" y="435" width="490" height="110" rx="18"/>
+      <rect x="90" y="670" width="490" height="110" rx="18" fill="#d8eee5"/>
+    </g>
+    <g font-size="27" font-weight="700">
+      <text x="335" y="150">1. 요청문 쓰기</text>
+      <text x="335" y="315">2. 초안 받기</text>
+      <text x="335" y="480">3. 원문과 조건 확인하기</text>
+      <text x="335" y="715">4. 확인한 결과 사용하기</text>
+    </g>
+    <g font-size="22" fill="#475569">
+      <text x="335" y="188">목적 · 대상 · 형식 · 조건</text>
+      <text x="335" y="353">아직 검토하지 않은 결과</text>
+      <text x="335" y="518">빠진 내용과 지어낸 사실 살피기</text>
+      <text x="335" y="753">AI의 자신감보다 실제 근거</text>
+      <text x="215" y="610" fill="#0f766e">조건에 맞으면 ↓</text>
+      <text x="490" y="599" fill="#9a3412">부족하면</text>
+      <text x="490" y="628" fill="#9a3412">요청 보완 ↗</text>
+    </g>
+    <g fill="none" stroke="#0f766e" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M335 218 V257"/>
+      <path d="M335 383 V422"/>
+      <path d="M215 548 V577 M215 622 V657"/>
+      <path d="M580 490 H637 V325 H593"/>
+    </g>
+    <text x="360" y="825" font-size="19" fill="#475569">반복 횟수가 정확성을 보장하지는 않는다</text>
+  </g>
+</svg>

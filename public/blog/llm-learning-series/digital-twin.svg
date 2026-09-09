@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="850" viewBox="0 0 640 850" role="img" aria-labelledby="title desc"><title id="title">대화형 이력서의 기본 구조</title><desc id="desc">공개할 자료 선별: 개인정보·비공개 업무 제외. 추출된 글을 원본과 대조: 경력 기간과 역할 확인. 지침 + 대화 + 현재 질문: 없는 경력은 추측하지 않기. 모델 응답 → 채팅 화면: 연락처 저장은 별도 기능. 나를 복제한 인격이 아닌 자료 기반 소개 도우미</desc><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 9 4.5 0 9" fill="#0f766e"/></marker></defs><rect width="640" height="850" rx="24" fill="#f5f7f4"/><g font-family="Pretendard, Apple SD Gothic Neo, sans-serif" text-anchor="middle" fill="#0f172a"><text x="320" y="64" font-size="32" font-weight="700">대화형 이력서의 기본 구조</text>
+<rect x="42" y="105" width="556" height="125" rx="18" fill="#e2f2ec" stroke="#cbd5e1"/><text x="320" y="154" font-size="31" font-weight="700">공개할 자료 선별</text><text x="320" y="198" font-size="26" fill="#334155">개인정보·비공개 업무 제외</text>
+<path d="M320 235 V257" stroke="#0f766e" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="42" y="270" width="556" height="125" rx="18" fill="#fff0dd" stroke="#cbd5e1"/><text x="320" y="319" font-size="31" font-weight="700">추출된 글을 원본과 대조</text><text x="320" y="363" font-size="26" fill="#334155">경력 기간과 역할 확인</text>
+<path d="M320 400 V422" stroke="#0f766e" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="42" y="435" width="556" height="125" rx="18" fill="#e2f2ec" stroke="#cbd5e1"/><text x="320" y="484" font-size="31" font-weight="700">지침 + 대화 + 현재 질문</text><text x="320" y="528" font-size="26" fill="#334155">없는 경력은 추측하지 않기</text>
+<path d="M320 565 V587" stroke="#0f766e" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="42" y="600" width="556" height="125" rx="18" fill="#fff0dd" stroke="#cbd5e1"/><text x="320" y="649" font-size="31" font-weight="700">모델 응답 → 채팅 화면</text><text x="320" y="693" font-size="26" fill="#334155">연락처 저장은 별도 기능</text>
+<text x="320" y="778" font-size="24" fill="#475569">나를 복제한 인격이 아닌</text>
+<text x="320" y="809" font-size="24" fill="#475569">자료 기반 소개 도우미</text>
+</g></svg>

@@ -446,6 +446,32 @@ button {
   color: #334155;
 }
 
+.prose-markdown .post-table-scroll {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.post-table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.post-table-scroll th,
+.post-table-scroll td {
+  min-width: 8rem;
+  border: 1px solid #cbd5e1;
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.post-table-scroll th {
+  background: #f0fdfa;
+  color: #115e59;
+}
+
 .prose-markdown h1,
 .prose-markdown h2,
 .prose-markdown h3 {
