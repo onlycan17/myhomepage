@@ -52,17 +52,17 @@ export function HeroSection() {
             </div>
           </div>
           <aside className="relative z-10 space-y-4">
-            <div className="mx-auto w-28 overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:w-32">
-              <Image
-                src="/profile.png"
-                alt="오진석 프로필 사진"
-                width={1086}
-                height={1448}
-                className="h-auto w-full rounded-[1.55rem] object-cover"
-                loading="eager"
-              />
-            </div>
-            <div className="surface-card p-6">
+            <div className="surface-card flow-root p-6">
+              <div className="float-right mb-4 ms-4 w-24 overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 sm:w-28">
+                <Image
+                  src="/profile.png"
+                  alt="오진석 프로필 사진"
+                  width={1086}
+                  height={1448}
+                  className="h-auto w-full rounded-[1.55rem] object-cover"
+                  loading="eager"
+                />
+              </div>
               <p className="monolabel">{"// summary"}</p>
               <dl className="mt-5 space-y-4 text-base text-slate-700">
                 <div>
@@ -74,7 +74,7 @@ export function HeroSection() {
                   <dd className="mt-1 text-base text-slate-950">{profile.headline}</dd>
                 </div>
                 <div>
-                  <dt className="text-slate-600">기반</dt>
+                  <dt className="clear-both text-slate-600">기반</dt>
                   <dd className="mt-1 text-base text-slate-950">Java / Spring → Flutter → React / Next → AI RAG</dd>
                 </div>
                 <div>
