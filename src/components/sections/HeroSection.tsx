@@ -9,7 +9,7 @@ export function HeroSection() {
       <div className="hero-grid absolute inset-0" aria-hidden="true" />
       <div className="hero-glow absolute inset-x-0 top-0 h-64" aria-hidden="true" />
       <HeroCursorGlow>
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-18 sm:px-8 sm:py-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-18 sm:px-8 sm:py-24 lg:grid-cols-[1.4fr_0.8fr] lg:px-10 lg:py-28">
           <div className="relative z-10 space-y-8">
             <p className="monolabel">{"// hero"}</p>
             <div className="space-y-4">
@@ -52,7 +52,7 @@ export function HeroSection() {
             </div>
           </div>
           <aside className="relative z-10 space-y-4">
-            <div className="mx-auto w-36 overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:w-full">
+            <div className="mx-auto w-28 overflow-hidden rounded-[1.9rem] border border-cyan-700/15 bg-white p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:w-32">
               <Image
                 src="/profile.png"
                 alt="오진석 프로필 사진"
