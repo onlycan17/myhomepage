@@ -45,6 +45,17 @@ export const featuredProjects: ProjectItem[] = [
     category: "ai",
   },
   {
+    name: "document_rag",
+    href: "https://github.com/onlycan17/document_rag",
+    image: "/projects/document-rag.png",
+    description: "문서를 업로드하고 검색 증강 생성(RAG) 답변과 출처를 확인하기 위한 테스트 프로젝트입니다.",
+    language: "Python",
+    updatedAt: "2026-09-12",
+    stars: 0,
+    topics: ["rag", "llm", "document"],
+    category: "ai",
+  },
+  {
     name: "moonshadow-courier",
     href: "https://github.com/onlycan17/moonshadow-courier",
     image: "/projects/moonshadow-courier.jpg",
