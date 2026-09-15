@@ -40,6 +40,9 @@ export function ProjectShowcaseList({ projects }: ProjectShowcaseListProps) {
   const [previewPosition, setPreviewPosition] = useState<PreviewPosition>(
     INITIAL_PREVIEW_POSITION,
   );
+  const activeImages = activeProject
+    ? (activeProject.images ?? (activeProject.image ? [activeProject.image] : []))
+    : [];
 
   const handlePointerEnter = (project: ProjectItem) => {
     if (!reducedMotion) {
@@ -108,15 +111,20 @@ export function ProjectShowcaseList({ projects }: ProjectShowcaseListProps) {
           aria-hidden="true"
           style={{ left: previewPosition.left, top: previewPosition.top }}
         >
-          {activeProject.image ? (
-            <Image
-              src={activeProject.image}
-              alt=""
-              width={1200}
-              height={750}
-              sizes="288px"
-              className="h-full w-full object-cover"
-            />
+          {activeImages.length > 0 ? (
+            <div className="project-showcase-preview-images">
+              {activeImages.map((image) => (
+                <Image
+                  key={image}
+                  src={image}
+                  alt=""
+                  width={1200}
+                  height={750}
+                  sizes="288px"
+                  className={`h-full min-w-0 w-full ${activeImages.length > 1 ? "object-contain" : "object-cover"}`}
+                />
+              ))}
+            </div>
           ) : (
             <div className="project-showcase-preview-fallback">
               <span className="monolabel">{activeProject.language}</span>

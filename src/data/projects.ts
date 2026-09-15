@@ -34,6 +34,31 @@ export const projectCategories: ProjectCategory[] = [
 
 export const featuredProjects: ProjectItem[] = [
   {
+    name: "SajuOn",
+    href: "https://sajuon-phi.vercel.app/",
+    image: "/projects/sajuon-result.png",
+    description: "출생 정보를 바탕으로 사주를 계산하고, 핵심 요약과 상세 해석을 한국어와 영어로 확인할 수 있는 웹 앱입니다.",
+    language: "Web App",
+    updatedAt: "2026-09-15",
+    stars: 0,
+    topics: ["saju", "localization", "web-app"],
+    category: "web",
+  },
+  {
+    name: "Solo Foundry",
+    href: "https://solo-foundry-production.up.railway.app/",
+    images: [
+      "/projects/solo-foundry-dashboard.png",
+      "/projects/solo-foundry-result.png",
+    ],
+    description: "1인 개발자와 창업자가 아이디어를 검증하고, 실행 가능한 제품으로 구체화할 수 있도록 돕는 웹 앱입니다.",
+    language: "Web App",
+    updatedAt: "2026-09-14",
+    stars: 0,
+    topics: ["idea-validation", "founder", "product"],
+    category: "ai",
+  },
+  {
     name: "browser-agent-extension",
     href: "https://github.com/onlycan17/browser-agent-extension",
     image: "/projects/browser-agent-extension.jpg",
