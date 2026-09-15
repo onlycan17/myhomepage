@@ -50,6 +50,7 @@ export type ProjectItem = {
   stars: number;
   topics: string[];
   image?: string;
+  images?: string[];
   category: ProjectCategoryKey;
 };
 

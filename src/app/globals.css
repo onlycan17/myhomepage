@@ -369,6 +369,14 @@ button {
   animation: showcase-preview-in 0.18s ease-out both;
 }
 
+.project-showcase-preview-images {
+  display: grid;
+  height: 100%;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  background: #e2e8f0;
+}
+
 .project-showcase-preview-fallback {
   display: flex;
   height: 100%;
