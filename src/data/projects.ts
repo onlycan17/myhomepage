@@ -36,7 +36,7 @@ export const featuredProjects: ProjectItem[] = [
   {
     name: "SajuOn",
     href: "https://sajuon-phi.vercel.app/",
-    image: "/projects/sajuon-result.png",
+    image: "/projects/sajuon-home.png",
     description: "출생 정보를 바탕으로 사주를 계산하고, 핵심 요약과 상세 해석을 한국어와 영어로 확인할 수 있는 웹 앱입니다.",
     language: "Next.js · Supabase · OpenRouter",
     updatedAt: "2026-09-15",
